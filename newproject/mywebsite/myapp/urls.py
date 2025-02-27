@@ -1,12 +1,8 @@
-from django.contrib import admin
-from django.urls import path, include
-from myapp import views
+from django.urls import path
+from .views import login_view, logoutuser, index
 
 urlpatterns = [
-    path("admin", admin.site.urls),
-    path("", views.index, name="index"),
-    path("login", views.loginuser, name="login"),
-    path("logout", views.logoutuser, name="logout"),
-
-    
+    path("", index, name="home"),  
+    path("login/", login_view, name="login"),
+    path("logout/", logoutuser, name="logout"),
 ]
