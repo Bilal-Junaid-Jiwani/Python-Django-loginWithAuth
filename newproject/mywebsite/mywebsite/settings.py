@@ -1,5 +1,6 @@
 from pathlib import Path
 from django.contrib.messages import constants as messages
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -68,8 +69,10 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = "static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [BASE_DIR / "static"]  # ✅ Static Files Directory
+STATIC_ROOT = BASE_DIR / "staticfiles"  # ✅ Static Root Directory (Fix for collectstatic)
+
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
